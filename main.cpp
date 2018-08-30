@@ -16,7 +16,7 @@ int main()
 	// heltalet 0 returneras till operativsystemet
 	
 	cout << "Software booting" << endl;
-	cout << "_" << endl;
+	cout << "_________________" << endl;
 	cout << "Booting completed" << endl;
 	cout << "A program by:" << endl << endl;
 	
@@ -24,17 +24,15 @@ int main()
 	cout << " B   B   OO  OO   VV     VV   II  N N   N    " << endl;
 	cout << " BBBBB   O    O    VV   VV    II  N  NN N    " << endl;
 	cout << " B    B  OO  OO     VV VV     II  N   N N     " << endl;
-	cout << " BBBBB    OOOO       VVV      II  N    NN    " << endl;
+	cout << " BBBBB    OOOO       VVV      II  N    NN    " << endl << endl;
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
+	cout << "Please enter your name" << endl;
+	char name[20];
+	cin >> name;
+	cout << endl << endl;
+	cout << "Welcome " << name;
 	
 	
 	
