@@ -27,6 +27,8 @@ int main ()
 	cout << "3:Multiplication" << endl;
 	cout << "4:Division" << endl << endl;
 	
+	
+	
 	cin >> method;
 	
 	cout << endl;
