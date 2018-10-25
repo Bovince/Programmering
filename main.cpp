@@ -56,7 +56,7 @@ int main()
 
 	if (action==2)
 	{
-		system("</opt/google/chrome/chrome> https://google.se");
+		system("/home/bovince/Desktop/public_html");
 	}
 	
 	
@@ -230,7 +230,7 @@ int main()
 	if (method==6)
 	{
 		
-		cout << "Enter number" << endl;
+	cout << "Enter number" << endl;
 	cin >> tal1;
 	
 	cout << endl;
