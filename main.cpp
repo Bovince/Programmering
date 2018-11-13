@@ -1,8 +1,76 @@
 #include <iostream> 
 #include <string>
 #include <math.h>
-
 using namespace std;
+	bool gameOver;
+	const int width(50);
+	const int height(30);
+	int x, y, fruitX, fruitY, score;
+	enum eDirecton { STOP = 0, LEFT, RIGHT, UP, DOWN};
+	eDirecton dir;
+	void Setup()
+		{
+			gameOver = false;
+			dir = STOP;
+			x = width/2;
+			y = height/2;
+			fruitX = rand() % width;
+			fruitY = rand() % height;
+			score = 0;
+		}
+		
+		void Draw()
+		{
+			system("clear");
+			for( int i = 0; i < width; i++)
+			{
+				cout << "#";
+			}
+			for( int i = 0; i < height; i++)
+			{
+				for( int j = 0; j < width; j++)
+				{
+						if(j==0)
+						{
+							cout << "#";
+						}
+						else
+						{
+						cout << " ";
+						}
+						if(j == width-1)
+						{
+							cout << "#";
+						}
+				}
+				cout << endl;
+			}
+			for( int i = 0; i < width+1; i++)
+			{
+				cout << "#";
+			}
+			cout << endl;
+			
+			
+		}
+		
+		void Input()
+		{
+			
+			
+			
+			
+		}
+
+		void Logic()
+		{
+			
+			
+			
+			
+		}
+
+
 int main()
 {
 	
@@ -45,6 +113,15 @@ int main()
 	
 	if (action==1)
 	{
+		Setup();
+		while(!gameOver)
+		{
+			Draw();
+			Input();
+			Logic();
+			
+			
+		}
 		
 	}
 
