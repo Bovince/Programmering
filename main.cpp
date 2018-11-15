@@ -1,13 +1,53 @@
 #include <iostream> 
 #include <string>
 #include <math.h>
+#include <ncurses.h>
+#include <sys/select.h>
+
+
+	int kbhit(void)
+{
+struct timeval tv;
+fd_set read_fd;
+
+tv.tv_sec=0;
+tv.tv_usec=0;
+
+FD_ZERO(&read_fd);
+
+FD_SET(0,&read_fd);
+
+if(select(1, &read_fd,NULL, NULL, &tv) == -1)
+return 0; 
+
+
+
+if(FD_ISSET(0,&read_fd))
+
+return 1;
+
+
+return 0;
+}
+
+
+
+
 using namespace std;
 	bool gameOver;
 	const int width(50);
 	const int height(30);
 	int x, y, fruitX, fruitY, score;
+	char k;
 	enum eDirecton { STOP = 0, LEFT, RIGHT, UP, DOWN};
 	eDirecton dir;
+	
+	
+	
+	
+	
+	
+
 	void Setup()
 		{
 			gameOver = false;
@@ -34,10 +74,19 @@ using namespace std;
 						{
 							cout << "#";
 						}
+						if (i == y && j == x)
+						{
+							cout << "O";
+						}
+						else if( i == fruitY && j == fruitX)
+						{
+							cout << "f";
+						}
 						else
 						{
 						cout << " ";
 						}
+						
 						if(j == width-1)
 						{
 							cout << "#";
@@ -56,23 +105,58 @@ using namespace std;
 		
 		void Input()
 		{
-			
-			
-			
-			
+			if(kbhit())
+			{
+				switch(getch())
+				{
+					case 'a':
+						dir = LEFT;
+						break;
+					case 'd':
+						dir = RIGHT;
+						break;
+					case 'w':
+						dir = UP;
+						break;
+					case 's':
+						dir = DOWN;
+						break;
+					case 'x':
+						gameOver = true;
+						break;
+				}
+			}
 		}
 
 		void Logic()
 		{
-			
-			
-			
-			
+			switch(dir)
+			{
+				case LEFT:
+					x--;
+					break;
+					
+				case RIGHT:
+					x++;
+					break;
+					
+				case UP:
+					y++;
+					break;
+					
+				case DOWN:
+					y--;
+					break;
+					
+				default:
+					break;
+			}
 		}
 
 
 int main()
 {
+	
 	
 	cout << "Programming initiated" << endl;
 	
