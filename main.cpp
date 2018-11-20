@@ -3,8 +3,8 @@
 #include <math.h>
 #include <ncurses.h>
 #include <sys/select.h>
-
-
+using namespace std;
+/*
 	int kbhit(void)
 {
 struct timeval tv;
@@ -153,6 +153,7 @@ using namespace std;
 			}
 		}
 
+*/
 
 int main()
 {
@@ -193,7 +194,7 @@ int main()
 	
 	
 	
-	
+/*
 	
 	if (action==1)
 	{
@@ -209,7 +210,7 @@ int main()
 		
 	}
 
-
+*/
 
 
 
@@ -217,7 +218,7 @@ int main()
 
 	if (action==2)
 	{
-		system("/home/bovince/Desktop/public_html");
+		system("/home/bovince/public_html/main/index.html");
 	}
 	
 	
