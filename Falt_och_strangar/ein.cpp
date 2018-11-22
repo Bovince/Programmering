@@ -19,6 +19,7 @@ int main()
 	a[0]=0;
 	a[1]=1;
 	a[2]=2;
+	cout << a[0] << a[1] << a[2] << endl;
 	
 	// du kan tilldela fältet värden samtidigt som du deklarerar
 	
