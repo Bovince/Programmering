@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 using namespace std;
-	bool gameOver;
+/*	bool gameOver;
 	const int width(50);
 	const int height(30);
 	int x, y, fruitX, fruitY, score;
@@ -20,31 +20,27 @@ using namespace std;
   struct timeval tv;
   fd_set read_fd;
 
-  /* Do not wait at all, not even a microsecond */
+  
   tv.tv_sec=0;
   tv.tv_usec=0;
 
-  /* Must be done first to initialize read_fd */
+  
   FD_ZERO(&read_fd);
 
-  /* Makes select() ask if input is ready:
-   * 0 is the file descriptor for stdin    */
+  
   FD_SET(0,&read_fd);
 
-  /* The first parameter is the number of the
-   * largest file descriptor to check + 1. */
-  if(select(1, &read_fd,NULL, /*No writes*/NULL, /*No exceptions*/&tv) == -1)
-    return 0;  /* An error occured */
+  
+  if(select(1, &read_fd,NULL, NULL,&tv) == -1)
+    return 0;  
 
-  /*  read_fd now holds a bit map of files that are
-   * readable. We test the entry for the standard
-   * input (file 0). */
+  
   
 if(FD_ISSET(0,&read_fd))
-    /* Character pending on stdin */
+    
     return 1;
 
-  /* no characters were pending */
+ 
   return 0;
 }
 	
@@ -108,7 +104,7 @@ if(FD_ISSET(0,&read_fd))
 		
 		void Input()
 		{
-			
+			if(kbhit())
 				switch(getch())
 				{
 					case 'a':
@@ -153,7 +149,7 @@ if(FD_ISSET(0,&read_fd))
 				default:
 					break;
 			}
-		}
+		*/
 
 
 
@@ -197,7 +193,7 @@ int main()
 	
 	
 
-	
+	/*
 	if (action==1)
 	{
 		Setup();
@@ -206,13 +202,13 @@ int main()
 			Draw();
 			Input();
 			Logic();
-			sleep(1);
+			
 			
 		}
 		
 	}
 
-
+	*/
 
 
 
@@ -413,24 +409,40 @@ int main()
 	
 		if (method==7)
 		{
-			string type;
+			int type;
 			
 			cout << "Choose one of the equation types below." << endl;
 			
+			cout << "1. x+y=v" << endl << endl;
+			cout << "2. x-y=v" << endl << endl;
+			cout << "3. xy=v" << endl << endl;
+			cout << "4. x/y=v" << endl << endl;
+			cout << "5. x+y+z=v" << endl << endl;
+			cout << "6. x+y-z=v" << endl << endl;
+			cout << "7. x-y+z=v" << endl << endl;
+			cout << "8. x-y-z=v" << endl << endl;
+			cout << "9. xy+z=v" << endl << endl;
+			cout << "10. xy-z=v" << endl << endl;
+			cout << "11. x+yz=v" << endl << endl;
+			cout << "12. x-yz=v" << endl << endl;
+			cout << "13. x^y+z=v" << endl << endl;
+			cout << "13. x^y-z=v" << endl << endl;
+			
+			
+			
 			cout << endl;
 			
+			cin >> type;
 			
-			cin.ignore(256,'\n');
-			getline(cin,type);
+			cout << endl;
 			
 		
-			if (type== "x+y" )
+			if (type==1)
 			{	
 				cout << endl;
-				cout << endl;
-				cout << "Input values x or y and the summ on request" << endl;
-				cout << "But first choose unknown term" << endl;
-				cout << "x or y" << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y or v for (value)" << endl;
 				cout << endl;
 				
 				char unknown;
@@ -446,7 +458,7 @@ int main()
 						cin >> tal2;
 						cout << endl;
 						tal3=tal2-tal1;
-						cout << "Your unknown is" << tal3;
+						cout << "Your unknown is " << tal3;
 					}
 					
 					if (unknown=='y')
@@ -460,49 +472,813 @@ int main()
 						tal3=tal2-tal1;
 						cout << "Your unknown is " << tal3;	
 					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal3;	
+					}
 				
 			}
 			
-			if (type=="x-y")
+			if (type==2)
 			{
-				cout << "Input values x or y and the summ on request" << endl;
-				cout << "But first choose unknown term" << endl;
-				cout << "x or y" << endl;
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y or v for (value)" << endl;
+				cout << endl;
+				char unknown;
 				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input summ" << endl;
+						cin >> tal2;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal3;
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;										
+						cout << "Please input summ" << endl;
+						cin >> tal2;
+						cout << endl;
+						tal3=tal1-tal2;
+						cout << "Your unknown is " << tal3;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						tal3=tal1-tal2;
+						cout << "Your unknown is " << tal3;	
+					}
 			}
 			
-			if (type=="x²+yx+z")
+			if (type==3)
 			{
-				cout << "Input values x or y and the summ on request" << endl;
-				cout << "But first choose unknown term" << endl;
-				cout << "x or y" << endl;
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y or v for (value)" << endl;
+				cout << endl;
+				char unknown;
 				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input summ" << endl;
+						cin >> tal2;
+						cout << endl;
+						tal3=tal2/tal1;
+						cout << "Your unknown is " << tal3;
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input summ" << endl;				
+						cin >> tal2;
+						cout << endl;
+						tal3=tal2/tal1;
+						cout << "Your unknown is " << tal3;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						tal3=tal1*tal2;
+						cout << "Your unknown is " << tal3;	
+					}
 			}
 			
-			if (type=="x²-yx+z")
+			if (type==4)
 			{
-				cout << "Input values x or y and the summ on request" << endl;
-				cout << "But first choose unknown term" << endl;
-				cout << "x or y" << endl;
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y or v for (value)" << endl;
+				cout << endl;
+				char unknown;
 				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input summ" << endl;
+						cin >> tal2;
+						cout << endl;
+						tal3=tal2*tal1;
+						cout << "Your unknown is " << tal3;
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input summ" << endl;				
+						cin >> tal2;
+						cout << endl;
+						tal3=tal1/tal2;
+						cout << "Your unknown is " << tal3;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						tal3=tal1/tal2;
+						cout << "Your unknown is " << tal3;	
+					}
 			}
 			
-			if (type=="x²+yx-z")
+			if (type==5)
 			{
-				cout << "Input values x or y and the summ on request" << endl;
-				cout << "But first choose unknown term" << endl;
-				cout << "x or y" << endl;
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y, z or v for (value)" << endl;
+				cout << endl;
+				char unknown;
 				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal3-tal2-tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;					
+						cin >> tal3;
+						cout << endl;
+						tal4=tal3-tal2-tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='z')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal3-tal2-tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal1+tal2+tal3;
+						cout << "Your unknown is " << tal4;	
+					}
 			}
 			
-			if (type=="x²-yx-z")
+			if (type==6)
 			{
-				cout << "Input values x or y and the summ on request" << endl;
-				cout << "But first choose unknown term" << endl;
-				cout << "x or y" << endl;
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y, z or v for (value)" << endl;
+				cout << endl;
+				char unknown;
 				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal3+tal2-tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal3+tal2-tal1;
+						cout << "Your unknown is " << tal4;				
+					}
+					
+					if (unknown=='z')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal3-tal2-tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal1+tal2-tal3;
+						cout << "Your unknown is " << tal4;	
+					}
 			}
 			
+			if (type==7)
+			{
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y, z or v for (value)" << endl;
+				cout << endl;
+				char unknown;
+				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal3-tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal1+tal2-tal3;									
+						cout << "Your unknown is " << tal4;						
+					}
+					
+					if (unknown=='z')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal3+tal2-tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal4=tal1+tal2-tal3;
+						cout << "Your unknown is " << tal4;	
+					}
+			}
+			
+			if (type==8)
+			{
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y, z or v for (value)" << endl;
+				cout << endl;
+				char unknown;
+				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='z')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+			}
+			
+			if (type==9)
+			{
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y, z or v for (value)" << endl;
+				cout << endl;
+				char unknown;
+				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='z')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+			}
+			
+			if (type==10)
+			{
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y, z or v for (value)" << endl;
+				cout << endl;
+				char unknown;
+				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='z')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+			}
+			
+			if (type==11)
+			{
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y, z or v for (value)" << endl;
+				cout << endl;
+				char unknown;
+				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='z')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+			}
+			
+			if (type==12)
+			{
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y, z or v for (value)" << endl;
+				cout << endl;
+				char unknown;
+				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='z')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+			}
+			
+			if (type==13)
+			{
+				cout << endl;
+				cout << "Input known variables (and/or the value of them) on request" << endl;
+				cout << "But first choose the unknown" << endl;
+				cout << "x, y, z or v for (value)" << endl;
+				cout << endl;
+				char unknown;
+				
+				cin >> unknown;
+				
+					if (unknown=='x')
+					{
+						cout << "Please input y" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='y')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='z')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input v" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+					
+					if (unknown=='v')
+					{
+						cout << "Please input x" << endl;
+						cin >> tal1;
+						cout << endl;
+						cout << "Please input y" << endl;
+						cin >> tal2;
+						cout << endl;
+						cout << "Please input z" << endl;
+						cin >> tal3;
+						cout << endl;
+						tal3=tal2+tal1;
+						cout << "Your unknown is " << tal4;	
+					}
+			}
+	
 	
 	}
 	
