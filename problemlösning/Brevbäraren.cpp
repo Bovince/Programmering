@@ -6,161 +6,223 @@ using namespace std;
 int main()
 {	
 	srand(time(NULL));
-	int antal_brev, langsta_strangen,k;//, brev1, brev2, brev3, brev4, brev5, brev6, brev7, brev8, brev9, brev10, brev11, brev12, brev13, brev14, brev15, brev16, brev17, brev18, brev19, brev20, brev21, brev22, brev23, brev24, brev25, brev26;
+	int antal_brev, langsta_strangen, k;
 	char brev[26];
+	bool Letter[26];
 	cout << "Harry bär "<<(rand() % 16)+10 << " brev." << endl;
 	langsta_strangen=0;
-	k=0;
-	int p=0;
+	k=(0);
+	
 	cin >> antal_brev;
 	
 	for ( int n = 0; n < (antal_brev); n++)
 		{
 		
-		//cout << (rand() % 26)+65;
 		brev[n]=(rand() % 26)+65;
+		
+		if (Letter[-65+(brev[n])] != 1)
+			{
+			Letter[-65+(brev[n])] = 1;
+			}
+		else
+			n--;
 		}
 	
-	for ( int i = 0; i < antal_brev; i++)
+	for ( int i = 0; i < (antal_brev); i++)
 		{
 		cout << brev[i];
 		}
-	for ( int u = 0; u < antal_brev; u++)
+		
+	cout << endl << "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z" << endl;
+		
+		
+	for ( int p = 0; p < 26; p++)
 		{
-		switch (brev[k])
+		switch (brev[p])
 			{
-			case p==0:
-			langsta_strangen++;
-			p=1;
+			case 'A':
+				if(k<1){
+				langsta_strangen++;
+				k=1;
+				}
 			break;
 			
 			case 'B':
-			langsta_strangen++;
-			p=2;
+				if(k<2){
+				langsta_strangen++;
+				k=2;
+				}
 			break;
 			
 			case 'C':
-			langsta_strangen++;
-			p=3;
+				if(k<3){
+				langsta_strangen++;
+				k=3;
+				}
 			break;
 			
 			case 'D':
-			langsta_strangen++;
-			p=4;
+				if(k<4){
+				langsta_strangen++;
+				k=4;
+				}
 			break;
 			
 			case 'E':
-			langsta_strangen++;
-			p=5;
+				if(k<5){
+				langsta_strangen++;
+				k=5;
+				}
 			break;
 			
 			case 'F':
-			langsta_strangen++;
-			p=6;
+				if(k<6){
+				langsta_strangen++;
+				k=6;
+				}
 			break;
 			
 			case 'G':
-			langsta_strangen++;
-			p=7;
+				if(k<7){
+				langsta_strangen++;
+				k=7;
+				}
 			break;
 			
 			case 'H':
-			langsta_strangen++;
-			p=8;
+				if(k<8){
+				langsta_strangen++;
+				k=8;
+				}
 			break;
 			
 			case 'I':
-			langsta_strangen++;
-			p=9;
+				if(k<9){
+				langsta_strangen++;
+				k=9;
+				}
 			break;
 			
 			case 'J':
-			langsta_strangen++;
-			p=10;
+				if(k<10){
+				langsta_strangen++;
+				k=10;
+				}
 			break;
 			
 			case 'K':
-			langsta_strangen++;
-			p=11;
+				if(k<11){
+				langsta_strangen++;
+				k=11;
+				}
 			break;
 			
 			case 'L':
-			langsta_strangen++;
-			p=12;
+				if(k<12){
+				langsta_strangen++;
+				k=12;
+				}
 			break;
 			
 			case 'M':
-			langsta_strangen++;
-			p=13;
+				if(k<13){
+				langsta_strangen++;
+				k=13;
+				}
 			break;
 			
 			case 'N':
-			langsta_strangen++;
-			p=14;
+				if(k<14){
+				langsta_strangen++;
+				k=14;
+				}
 			break;
 			
 			case 'O':
-			langsta_strangen++;
-			p=15;
+				if(k<15){
+				langsta_strangen++;
+				k=15;
+				}
 			break;
 			
 			case 'P':
-			langsta_strangen++;
-			p=16;
+				if(k<16){
+				langsta_strangen++;
+				k=16;
+				}
 			break;
 			
 			case 'Q':
-			langsta_strangen++;
-			p=17;
+				if(k<17){
+				langsta_strangen++;
+				k=17;
+				}
 			break;
 			
 			case 'R':
-			langsta_strangen++;
-			p=18;
+				if(k<18){
+				langsta_strangen++;
+				k=18;
+				}
 			break;
 			
 			case 'S':
-			langsta_strangen++;
-			p=19;
+				if(k<19){
+				langsta_strangen++;
+				k=19;
+				}
 			break;
 			
 			case 'T':
-			langsta_strangen++;
-			p=20;
+				if(k<20){
+				langsta_strangen++;
+				k=20;
+				}
 			break;
 			
 			case 'U':
-			langsta_strangen++;
-			p=21;
+				if(k<21){
+				langsta_strangen++;
+				k=21;
+				}
 			break;
 			
 			case 'V':
-			langsta_strangen++;
-			p=22;
+				if(k<22){
+				langsta_strangen++;
+				k=22;
+				}
 			break;
 			
 			case 'W':
-			langsta_strangen++;
-			p=23;
+				if(k<23){
+				langsta_strangen++;
+				k=23;
+				}
 			break;
 			
 			case 'X':
-			langsta_strangen++;
-			p=24;
+				if(k<24){
+				langsta_strangen++;
+				k=24;
+				}
 			break;
 			
 			case 'Y':
-			langsta_strangen++;
-			p=25;
+				if(k<25){
+				langsta_strangen++;
+				k=25;
+				}
 			break;
 			
 			case 'Z':
-			langsta_strangen++;
-			p=26;
+				if(k<26){
+				langsta_strangen++;
+				k=26;
+				}
 			break;
 			}
 			
-		k++;
 		}
 	cout << endl << langsta_strangen;
 	

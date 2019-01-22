@@ -56,7 +56,7 @@ int main()
 		cout << "          " << food_villagers << "   " << wood_villagers << "   " << gold_villagers << "   " << stone_villagers << "   " << pop_villagers << "   " << free_villagers << endl << endl;
 	
 		cout << "To alocate villagers enter in \"f\" or food, \"w\" for wood, \"g\" for gold or \"s\" for stone." << endl;
-		cout << "To build a house enter in \"h\". To do this you need a free villager." << endl;
+		cout << "To build a house enter in \"h\". To do any of these, you need atleast one free villager." << endl;
 		
 		cin >> action;
 		
@@ -64,45 +64,103 @@ int main()
 		
 		if (action==102)	//food
 		{
-			food_villagers++;
-			free_villagers--; 
+			if (free_villagers>0)
+			{
+				food_villagers++;
+				free_villagers--; 
+				
+				sleep(1);
+		
+		nfood=food+(1*food_villagers);
+		nwood=wood+(1*wood_villagers);
+		ngold=gold+(1*gold_villagers);
+		nstone=stone+(1*stone_villagers);
+			}
 		}
 			
 		if (action==119)	//wood
 		{
-			wood_villagers++;
-			free_villagers--;
+			if (free_villagers>0)
+			{
+				wood_villagers++;
+				free_villagers--;
+				
+				sleep(1);
+		
+		nfood=food+(1*food_villagers);
+		nwood=wood+(1*wood_villagers);
+		ngold=gold+(1*gold_villagers);
+		nstone=stone+(1*stone_villagers);
+			}
 		}
 			
 		if (action==103)	//gold
 		{
-			gold_villagers++;
-			free_villagers--;
+			if (free_villagers>0)
+			{
+				gold_villagers++;
+				free_villagers--;
+				
+				sleep(1);
+		
+		nfood=food+(1*food_villagers);
+		nwood=wood+(1*wood_villagers);
+		ngold=gold+(1*gold_villagers);
+		nstone=stone+(1*stone_villagers);
+			}
 		}
 			
 		if (action==115)	//stone
 		{
-			stone_villagers++;
-			free_villagers--;
+			if (free_villagers>0)
+			{
+				stone_villagers++;
+				free_villagers--;
+				
+				sleep(1);
+		
+		nfood=food+(1*food_villagers);
+		nwood=wood+(1*wood_villagers);
+		ngold=gold+(1*gold_villagers);
+		nstone=stone+(1*stone_villagers);
+			}
 		}
 			
 		if (action==104)	//house
 		{
-			pop_villagers++;
-			free_villagers--;
-			wood=wood-30;
-			npop_max=npop_max+5;
-		}
-		if (action==32){}
+			if (free_villagers>0)
+			{
+				pop_villagers++;
+				free_villagers--;
+				wood=wood-30;
+				npop_max=npop_max+5;
+				
+				sleep(1);
 		
+		nfood=food+(1*food_villagers);
+		nwood=wood+(1*wood_villagers);
+		ngold=gold+(1*gold_villagers);
+		nstone=stone+(1*stone_villagers);
+			}
+		}
+		if (action==32)
+		{
+			sleep(1);
+		
+		nfood=food+(1*food_villagers);
+		nwood=wood+(1*wood_villagers);
+		ngold=gold+(1*gold_villagers);
+		nstone=stone+(1*stone_villagers);
+		}
+		/*
 		sleep(1);
 		
 		nfood=food+(1*food_villagers);
 		nwood=wood+(1*wood_villagers);
 		ngold=gold+(1*gold_villagers);
 		nstone=stone+(1*stone_villagers);
-		
-		
+		*/
+	
 		
 		system("clear");
 		
