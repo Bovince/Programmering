@@ -6,6 +6,16 @@
 #include <unistd.h>
 
 using namespace std;
+
+float addition();
+float subtraction();
+float multiplication();
+float division();
+float power();
+float squarerot();
+float equation();
+
+
 /*	bool gameOver;
 	const int width(50);
 	const int height(30);
@@ -188,11 +198,6 @@ int main()
 	cout << endl;
 	
 	
-	
-	
-	
-	
-
 	/*
 	if (action==1)
 	{
@@ -202,24 +207,18 @@ int main()
 			Draw();
 			Input();
 			Logic();
-			
-			
 		}
-		
 	}
 
 	*/
 
 
 
-
-
 	if (action==2)
 	{
-		system("/home/bovince/public_html/main/index.html");
+		
+		
 	}
-	
-	
 	
 	
 	

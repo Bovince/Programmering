@@ -5,7 +5,7 @@
 using namespace std;
 int main()
 {
-	initscr();
+	//initscr();
 	
 	 int food, wood, gold, stone, pop, pop_max;
 	 int nfood, nwood, ngold, nstone, npop, npop_max;

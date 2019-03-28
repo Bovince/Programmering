@@ -1,9 +1,18 @@
 #include <iostream>
+#include <string>
 using namespace std;
-int main()
+int main (int argc, char *argv[])
 {
-	cout << endl;
-	cout << "\"To be or not to be, that is the question\"-Shakespeare 1603 a.d" << endl;
-	
-	return 0;
+    int i = 1;
+    string url =  "https://www.google.com/search?q=";
+
+    for (; i < argc; i++) {
+        url = url + string(argv[i]);
+        if (i != argc-1) url = url + string("+");
+    }
+
+    cout << url << endl;
+    string op = string("open ").append(url);
+    system(op.c_str());
+    return 0;
 }
